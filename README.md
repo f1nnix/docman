@@ -2,6 +2,8 @@
 
 Docs generator for [Postman REST Client](https://www.getpostman.com/)
 
+![Docman — docs generator for Postman REST Client](./docs/img/showcase.png)
+
 # Install
 
 Install Docman globally:
