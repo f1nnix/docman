@@ -33,12 +33,12 @@ module.exports = (request) ->
   data += getDescr(request)
 
   # parse query parameters
-  data += M.h4('Query parameters (?name=bob)') + '\n\n'
+  data += M.h4('Query parameters') + '\n\n'
   data += generateQueryParameters(request)
   data += '\n'
 
   # parse body perameters
-  data += M.h4('Body parameters (form-data/urlencoded payload)') + '\n\n'
+  data += M.h4('Body parameters') + '\n\n'
   data += generateBodyParameters(request)
   data += '\n'
 
@@ -73,4 +73,4 @@ generateBodyParameters = (request)->
   unless request.data.length is 0
     data += M.table(request.data) + "\n"
   else
-    "*No body parameters (form-data/urlencoded payload) accepted.*\n"
+    "*No body parameters accepted.*\n"
