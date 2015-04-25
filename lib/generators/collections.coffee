@@ -14,7 +14,7 @@ buildToc = (collection) ->
   data = ''
 
   collection.requests.forEach (request) ->
-    data += M.li(M.a(request.name, '#' + utils.normalizeString(request.name))) + '\n'
+    data += M.li(request.name) + '\n'
 
   data += '\n'
   data
@@ -24,7 +24,7 @@ module.exports = (Postman, outputDir) ->
     data = ''
     data += M.h1(collection.name) + '\n\n'
     data += collection.description + '\n\n'
-    data += M.h2('Methods') + '\n\n'
+    data += M.h4('Available methods') + '\n\n'
 
     # build toc
     data += buildToc(collection)
