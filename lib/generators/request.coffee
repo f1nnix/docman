@@ -26,8 +26,15 @@ module.exports = (request) ->
   paramHeader = if request.method is "GET" then "Query parameters (?:key=value)" else "Body parameters (urlencoded)"
   data += M.h4(paramHeader) + '\n\n'
 
-  # process params
-  data += M.table(request.data) + "\n"
+  if request.data.length > 0
+    data += M.table(request.data) + "\n"
+  else
+    switch request.method
+      when "GET"
+        data += "Request does not accept any query parameters\n"
+      when "POST"
+        data += "Request does not accept any body parameters (urlencoded payload)\n"
+
   data += '\n'
 
   data
