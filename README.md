@@ -1,5 +1,10 @@
 # Docman
 
+![Docman GitHub issues](https://img.shields.io/github/issues/f1nnix/docman.svg)
+![Docman GitHub forks](https://img.shields.io/github/forks/f1nnix/docman.svg)
+![Docman GitHub stars](https://img.shields.io/github/stars/f1nnix/docman.svg)
+![Docman GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
 Docs generator for [Postman REST Client](https://www.getpostman.com/). Docman parses Postman dump files and outputs documentation as set of Markdown files.
 
 ![Docman — docs generator for Postman REST Client](./docs/img/showcase.jpg)
