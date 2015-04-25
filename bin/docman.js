@@ -1,15 +1,18 @@
 #!/usr/bin/env node
 
-var path = require('path');
+var path   = require('path');
+var fs     = require("fs");
 var docman = require('../lib/docman.js');
 
 var dumpFile = '';
-var postman = {};
+var content  = '';
+var postman  = {};
 
 // Parse Postman dump
 try {
   dumpFile = path.resolve(process.argv[2])
-  postman  = require(dumpFile)
+  content  = fs.readFileSync(dumpFile, "utf8");
+  postman  = JSON.parse(content);
 } catch (e) {
   raiseError('no_dump')
 }
