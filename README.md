@@ -9,6 +9,14 @@ Docs generator for [Postman REST Client](https://www.getpostman.com/). Docman pa
 
 ![Docman — docs generator for Postman REST Client](./docs/img/showcase.jpg)
 
+# Features
+
+* Organize docs by collections
+* Parametrized URLs
+* Query parameters
+* Body (form/urlencolded) parameters
+* TDOD: example responses
+
 # Install
 
 Install Docman globally:
