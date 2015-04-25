@@ -1,8 +1,8 @@
 # Docman
 
-Docs generator for [Postman REST Client](https://www.getpostman.com/)
+Docs generator for [Postman REST Client](https://www.getpostman.com/). Docman parses Postman dump files and outputs documentation as set of Markdown files.
 
-![Docman — docs generator for Postman REST Client](./docs/img/showcase.png)
+![Docman — docs generator for Postman REST Client](./docs/img/showcase.jpg)
 
 # Install
 
