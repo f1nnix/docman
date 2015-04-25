@@ -1,0 +1,31 @@
+{
+  "name": "docman",
+  "version": "0.0.1",
+  "description": "Docs generator for Postman",
+  "bin": {
+    "docman": "bin/docman.js"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "postman",
+    "rest",
+    "api",
+    "generator",
+    "chrome",
+    "documentation",
+    "autodoc"
+  ],
+  "author": "Ilya Rusanen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/f1nnix/docman.git"
+  },
+  "bugs": {
+    "url": "https://github.com/f1nnix/docman/issues"
+  },
+  "homepage": "https://github.com/f1nnix/docman"
+}
