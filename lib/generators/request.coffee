@@ -42,6 +42,11 @@ module.exports = (request) ->
   data += generateBodyParameters(request)
   data += '\n'
 
+  # parse example responses
+  data += M.h4('Example responses') + '\n\n'
+  data += generateExampleResponses(request)
+  data += '\n'
+
   data
 
 
@@ -74,3 +79,20 @@ generateBodyParameters = (request)->
     data += M.table(request.data) + "\n"
   else
     "*No body parameters accepted.*\n"
+
+generateExampleResponses = (request)->
+  if request.responses.length is 0
+    "*No example responses saved.*\n"
+  else
+    data = ""
+    for response in request.responses
+      data += M.h5(response.name) + "\n\n"
+      try
+        data += "```json\n"
+        responseJSON = JSON.parse(response.text)
+        data += JSON.stringify(responseJSON, null, 4) + "\n"
+        data += "```\n"
+      catch e
+        data += response.text + "\n"
+
+    data
