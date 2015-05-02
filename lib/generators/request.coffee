@@ -88,11 +88,11 @@ generateExampleResponses = (request)->
     for response in request.responses
       data += M.h5(response.name) + "\n\n"
       try
-        data += "```json\n"
         responseJSON = JSON.parse(response.text)
+        data += "```json\n"
         data += JSON.stringify(responseJSON, null, 4) + "\n"
         data += "```\n"
       catch e
-        data += response.text + "\n"
+        data += response.text + "\n\n"
 
     data
