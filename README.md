@@ -15,7 +15,7 @@ Docs generator for [Postman REST Client](https://www.getpostman.com/). Docman pa
 * Parametrized URLs
 * Query parameters
 * Body (form/urlencolded) parameters
-* TDOD: example responses
+* Example responses
 
 # Install
 
