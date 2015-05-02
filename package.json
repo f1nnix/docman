@@ -1,6 +1,6 @@
 {
   "name": "docman",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Docs generator for Postman",
   "bin": {
     "docman": "bin/docman.js"
