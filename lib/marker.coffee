@@ -36,19 +36,28 @@ createTable = (rows)->
     # console.log rows
     try
       JSONParams = JSON.parse(rows)
+      return """
+      ```json
+      #{JSON.stringify(JSONParams, null, 4)}
+      ```
+      """
     catch e
-      console.log e
+      """
+      ```
+      #{rows}
+      ```
+      """
 
-    rows = []
-    # HACK: quick hack to transform string into generator-readable format
-    for key of JSONParams
-      row =
-        "key": key
-        "value"    : JSONParams[key]
-      rows.push row
-
-    table = buildTable(headers, rows)
-    table
+    # rows = []
+    # # HACK: quick hack to transform string into generator-readable format
+    # for key of JSONParams
+    #   row =
+    #     "key": key
+    #     "value"    : JSONParams[key]
+    #   rows.push row
+    #
+    # table = buildTable(headers, rows)
+    # table
 
 getTableHeaderName = (data)->
   if data.length > 0

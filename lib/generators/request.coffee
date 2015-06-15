@@ -38,7 +38,7 @@ module.exports = (request) ->
   data += '\n'
 
   # parse body perameters
-  data += M.h4('Body parameters') + '\n\n'
+  data += M.h4('Body payload') + '\n\n'
   data += generateBodyParameters(request)
   data += '\n'
 
