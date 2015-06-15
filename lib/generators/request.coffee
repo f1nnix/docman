@@ -81,18 +81,19 @@ generateBodyParameters = (request)->
     "*No body parameters accepted.*\n"
 
 generateExampleResponses = (request)->
-  if request.responses.length is 0
-    "*No example responses saved.*\n"
-  else
-    data = ""
-    for response in request.responses
-      data += M.h5(response.name) + "\n\n"
-      try
-        responseJSON = JSON.parse(response.text)
-        data += "```json\n"
-        data += JSON.stringify(responseJSON, null, 4) + "\n"
-        data += "```\n"
-      catch e
-        data += response.text + "\n\n"
 
-    data
+  if request.responses
+    if request.responses.length > 0
+        data = ""
+        for response in request.responses
+          data += M.h5(response.name) + "\n\n"
+          try
+            responseJSON = JSON.parse(response.text)
+            data += "```json\n"
+            data += JSON.stringify(responseJSON, null, 4) + "\n"
+            data += "```\n"
+          catch e
+            data += response.text + "\n\n"
+        return data
+
+  "*No example responses saved.*\n"

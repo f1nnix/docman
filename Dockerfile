@@ -1,5 +1,7 @@
-FROM dockerfile/ubuntu
+FROM ubuntu
 
+# Install Wget
+RUN apt-get -y install wget
 # Install Node
 RUN \
   cd /opt && \

@@ -17,9 +17,38 @@ Markdown = generator:
 
 
 createTable = (rows)->
-  headers = getTableHeaderName(rows)
-  table   = buildTable(headers, rows)
-  table
+  # HACK: !! fixme
+  if rows instanceof Array
+    # form-data/unlencoded
+    headers = getTableHeaderName(rows)
+    table   = buildTable(headers, rows)
+    table
+  else
+    # raw JSON string
+    # predifined columns names
+    headers    = ["key", "value"]
+    JSONParams = undefined
+    # rows = rows
+    #   .replace("\n", "")
+    #   .replace("\t", "")
+    #   .replace('\"', '"')
+    #
+    # console.log rows
+    try
+      JSONParams = JSON.parse(rows)
+    catch e
+      console.log e
+
+    rows = []
+    # HACK: quick hack to transform string into generator-readable format
+    for key of JSONParams
+      row =
+        "key": key
+        "value"    : JSONParams[key]
+      rows.push row
+
+    table = buildTable(headers, rows)
+    table
 
 getTableHeaderName = (data)->
   if data.length > 0
@@ -39,8 +68,9 @@ buildTable = (paramNames, paramsObjects)->
   for paramName in paramNames
     maxChars[paramName] = paramName.length
     for paramsObject in paramsObjects
-      if paramsObject[paramName].length > maxChars[paramName]
-        maxChars[paramName] = paramsObject[paramName].length
+      if paramsObject[paramName] isnt null # fix for null values
+        if paramsObject[paramName].length > maxChars[paramName]
+          maxChars[paramName] = paramsObject[paramName].length
 
     # console.log "Max length for #{paramName}: #{maxChars[paramName]}"
 
